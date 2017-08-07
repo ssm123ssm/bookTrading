@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Trading -
+        <%=name%>
+    </title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="jquery.js"></script>
+    <script src="tether.min.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <%- include("navbar") %>
+
+        <div class="container-fluid mt-5">
+
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <h3 class=" display-5">Update Profile</h3>
+                    <form class="mt-5">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" class="form-control" value="<%=city%>"> </div>
+
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" class="form-control" value="<%=state%>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" value="<%=phone  %>">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-lg settings">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer text-center mt-4 mb-2">created by supun manathunga | 2017</div>
+        <script src=""></script>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Trading -
+        <%=name%>
+    </title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="jquery.js"></script>
+    <script src="tether.min.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="ctrl" ng-init="getMyBooks()">
+    <%- include("navbar") %>
+
+        <div class="container-fluid" ng-init="loadAll()">
+
+            <div class="text-center mt-5 mb-5">
+                <button type="button" class="btn btn-success mt-2">Your trade requests ({{myReq}} outstanding) </button>
+                <button type="button" class="btn btn-primary mt-2">Trade requests for you ({{reqForMe}} unapproved) </button>
+            </div>
+
+            <div class="myRequests">
+                <h1 class="mt-4" style="font-weight:300">My Requests</h1>
+                <hr>
+
+                <div class="myBooks-thumbs mt-4 row">
+                    <div ng-repeat="book in myReq_books" class="col-4 col-md-2" nop3>
+                        <div class="book">
+
+                            <span class="close" id="close" ng-click=clearFromMyReqs(book)>x</span>
+                            <img alt="{{book.book}}" src="{{book.thumb}}" class="img-responsive img-thumbnail thumb"></div>
+                        OWNER:- {{book.owner}} | {{book.ownerId}}
+                        <div class="trade_available2">This book has been removed by the owner</div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="myRequests mt-4">
+                <h1 class="mt-4" style="font-weight:300">Requests for me</h1>
+                <hr>
+
+                <div class="myBooks-thumbs mt-4 row">
+                    <div ng-repeat="book in reqForMe_books" class="col-4 col-md-2 nop4">
+                        <div class="book">
+
+
+                            <img alt="{{book.book}}" src="{{book.thumb}}" class="img-responsive img-thumbnail thumb"></div>
+                        Name: {{book.name}} <br> City: {{book.city}} <br> State: {{book.state}} <br> Phone Number: {{book.phone}} <br>
+                        <a href="https://www.facebook.com/app_scoped_user_id/{{book.id}}" target="_blank">Facebook profile</a>
+                        <br>
+                        <button type="button" class="btn btn-sm btn-block btn-primary settle" ng-click="clearReqsForMe(book)">Trade Settled</button>
+
+                        <!--OWNER:- {{book.owner}} | {{book.ownerId}}
+<div class="trade_available2">This book has been removed by the owner</div>-->
+                    </div>
+
+                </div>
+            </div>
+
+            <h1 class="mt-4" style="font-weight:300">My Books</h1>
+            <hr>
+
+            <div class="row justify-content-start">
+                <div class="col-12 col-md-4">
+                    <form>
+                        <div class="input-group"><input type="text" class="form-control book-field" placeholder="Book"><span class="input-group-btn"><button type="button" class="btn btn-primary add-book">Add</button> </span></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="myBooks-thumbs mt-4 mb-3 row">
+                <div ng-repeat="book in myBooks" class="col-4 col-md-2" nop2>
+                    <div class="book">
+
+                        <span class="close" id="close" ng-click=clear(book)>x</span>
+                        <img alt="{{book.name}}" src="{{book.thumb}}" class="img-responsive img-thumbnail thumb"></div>
+
+                    <div class="trade_available"></div>
+                </div>
+                <div class="loader col-1">
+                    <div class="inner text-center">Adding Book...</div>
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw loader-i" aria-hidden="true"></i></div>
+            </div>
+
+
+
+        </div>
+
+        <div class="footer text-center mt-4 mb-2">created by supun manathunga | 2017</div>
+
+        <script src=""></script>
+</body>
+
+</html>

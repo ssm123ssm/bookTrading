@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Trading -
+        <%=name%>
+    </title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="jquery.js"></script>
+    <script src="tether.min.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="ctrl" ng-init="loadAll()">
+    <%- include("navbar") %>
+
+        <div class="container-fluid">
+            <div class="text-center mt-5 mb-5">
+                <button type="button" class="btn btn-success mt-2 myReqs">Your trade requests ({{myReq}} outstanding) </button>
+                <button type="button" class="btn btn-primary mt-2 myReqs">Trade requests for you ({{reqForMe}} unapproved) </button>
+            </div>
+
+            <h1 class="" style="font-weight:300">All Books</h1>
+            <hr>
+            <p class="mt-3">Click the <i class="fa fa-retweet"></i> to request a trade!</p>
+
+        </div>
+        <div class="myBooks-thumbs mt-4 row" style="padding: 20px;">
+            <div ng-repeat=" book in allBooks " class="col-4 col-md-2 " nop>
+                OWNER: {{book.owner}} | OWNER ID: {{book.ownerId}}
+                <div class="book ">
+
+                    <span class="close trade " id="close " ng-click=trade(book)><i class="fa fa-retweet "></i></span>
+                    <img alt="{{book.name}} " src="{{book.thumb}} " class="img-responsive img-thumbnail thumb "></div>
+            </div>
+
+        </div>
+        <div class="footer text-center mt-4 mb-2 ">created by supun manathunga | 2017</div>
+
+        <script src=" "></script>
+</body>
+
+</html>
