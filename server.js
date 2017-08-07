@@ -30,7 +30,7 @@ app.use(express.static('./public'));
 app.use(session({
     secret: "Shh, its a secret!"
 }));
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log(`server listening on ${port}`);
 });
 
